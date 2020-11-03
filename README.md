@@ -206,24 +206,24 @@ android {
 * Quyền truy cập đọc và thay đổi bộ nhớ.
 * Quyền sử dụng điện thoại.
 # 6. Các thư viện đã thêm vào sử dụng:
-|Loại thư viện|Tên thư viện|Xử lý|Kế thừa|
-|---|---|---|---|
-|Design|Circle Image|Cắt ảnh theo hình tròn|'de.hdodenhof:circleimageview:3.1.0'|
-|Design|Material|Thêm hiệu ứng, tính năng vào giao diện người dùng (UI)|'com.google.android.material:material:1.2.1'|
-|Design|Material Text|Hiệu ứng trong Text|'com.rengwuxian.materialedittext:library:2.1.4'|
-|Design|Glide|Xử lý hình ảnh, đọc và gán hình ảnh|'com.github.bumptech.glide:glide:4.11.0'|
-|Design|PhotoView|Phóng to, thu nhỏ hình ảnh|'com.github.chrisbanes:PhotoView:2.3.0'|
-|Design|Navigation Fragment|Xử lý các Fragment trong Navigation|'androidx.navigation:navigation-fragment-ktx:2.3.1'|
-|Design|Navigation UI|Giao diện Navigation Bottom|'androidx.navigation:navigation-ui-ktx:2.3.1'|
-|Java|Viewmodel|Xử lý các tác vụ của ViewModel (Theo mô hình MVVM)|"androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"|
-|Java|Authentication|Xử lý tài khoản ứng dụng|'com.google.firebase:firebase-auth:19.4.0'|
-|Java|Firebase Storage|Lưu trữ hình ảnh|'com.google.firebase:firebase-storage:19.2.0'|
-|Java|Firebase Firestore|Lưu trữ cơ sơ|'com.google.firebase:firebase-firestore:21.7.1'|
-|Java|Firebase Realtime Database|Lưu trữ cơ sơ|'com.google.firebase:firebase-database:19.5.0'|
-|Java|Firebase Machine Learning|Dịch ngữ|'com.google.firebase:firebase-ml-natural-language:19.0.1'|
-|Kotlin|Authentication|Xử lý tài khoản ứng dụng|'com.firebaseui:firebase-ui-auth:6.2.0'|
-|Kotlin|Firebase Storage|Lưu trữ hình ảnh|'com.google.firebase:firebase-storage-ktx:19.2.0'|
-|Kotlin|Firebase Firestore|Lưu trữ cơ sơ|'com.google.firebase:firebase-firestore-ktx:21.7.1'|
-|Kotlin|Firebase Realtime Database|Lưu trữ cơ sơ|'com.google.firebase:firebase-database-ktx:19.5.0'|
-|Kotlin|Firebase Machine Learning|Dịch ngữ|'com.google.firebase:firebase-ml-natural-language:19.0.1'|
-|Kotlin|Firebase Cloud Messaging|Thông báo đẩy|com.google.firebase:firebase-messaging:20.3.0|
+|Loại thư viện|Tên thư viện|Xử lý|Kế thừa|Đường dẫn|
+|---|---|---|---|---|
+|Design|Circle Image|Cắt ảnh theo hình tròn|'de.hdodenhof:circleimageview:3.1.0'|(https://github.com/hdodenhof/CircleImageView)|
+|Design|Material|Thêm hiệu ứng, tính năng vào giao diện người dùng (UI)|'com.google.android.material:material:1.2.1'|(https://material.io/design)|
+|Design|Material Text|Hiệu ứng trong Text|'com.rengwuxian.materialedittext:library:2.1.4'|(https://material.io/components/text-fields)|
+|Design|Glide|Xử lý hình ảnh, đọc và gán hình ảnh|'com.github.bumptech.glide:glide:4.11.0'|(https://github.com/bumptech/glide)|
+|Design|PhotoView|Phóng to, thu nhỏ hình ảnh|'com.github.chrisbanes:PhotoView:2.3.0'|(https://github.com/chrisbanes/PhotoView)|
+|Design|Navigation Fragment|Xử lý các Fragment trong Navigation|'androidx.navigation:navigation-fragment-ktx:2.3.1'|(https://developer.android.com/guide/navigation/navigation-getting-started)|
+|Design|Navigation UI|Giao diện Navigation Bottom|'androidx.navigation:navigation-ui-ktx:2.3.1'|(https://developer.android.com/guide/navigation/navigation-getting-started)|
+|Java|Viewmodel Livedata|Xử lý các tác vụ của ViewModel (Theo mô hình MVVM)|"androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"|(https://developer.android.com/topic/libraries/architecture/livedata)|
+|Java|Authentication|Xử lý tài khoản ứng dụng|'com.google.firebase:firebase-auth:19.4.0'|(https://firebase.google.com/docs/auth/android/firebaseui?authuser=1)|
+|Java|Firebase Storage|Lưu trữ hình ảnh|'com.google.firebase:firebase-storage:19.2.0'|(https://firebase.google.com/docs/storage/android/start?authuser=1)|
+|Java|Firebase Firestore|Lưu trữ cơ sơ|'com.google.firebase:firebase-firestore:21.7.1'|(https://firebase.google.com/docs/firestore?authuser=1)|
+|Java|Firebase Realtime Database|Lưu trữ cơ sơ|'com.google.firebase:firebase-database:19.5.0'|(https://firebase.google.com/docs/database/android/start?authuser=1)|
+|Java|Firebase Machine Learning|Dịch ngữ|'com.google.firebase:firebase-ml-natural-language:19.0.1'|(https://firebase.google.com/docs/ml-kit/android/translate-text?authuser=1)|
+|Kotlin|Authentication|Xử lý tài khoản ứng dụng|'com.firebaseui:firebase-ui-auth:6.2.0'|(https://firebase.google.com/docs/auth/android/firebaseui?authuser=1)|
+|Kotlin|Firebase Storage|Lưu trữ hình ảnh|'com.google.firebase:firebase-storage-ktx:19.2.0'|(https://firebase.google.com/docs/storage/android/start?authuser=1)|
+|Kotlin|Firebase Firestore|Lưu trữ cơ sơ|'com.google.firebase:firebase-firestore-ktx:21.7.1'|(https://firebase.google.com/docs/firestore?authuser=1)|
+|Kotlin|Firebase Realtime Database|Lưu trữ cơ sơ|'com.google.firebase:firebase-database-ktx:19.5.0'|(https://firebase.google.com/docs/database/android/start?authuser=1)|
+|Kotlin|Firebase Machine Learning|Dịch ngữ|'com.google.firebase:firebase-ml-natural-language:19.0.1'|(https://firebase.google.com/docs/ml-kit/android/translate-text?authuser=1)|
+|Kotlin|Firebase Cloud Messaging|Thông báo đẩy|com.google.firebase:firebase-messaging:20.3.0|https://firebase.google.com/docs/cloud-messaging/android/client?authuser=1
