@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    tools:context="com.example.mangxahoigduers.View.Activity.DoiMatKhauActivity">
+
+    <Button
+        android:id="@+id/buttonDongY"
+        android:layout_width="@dimen/dp300"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/button_border"
+        android:padding="@dimen/dp10"
+        android:text="@string/dongY"
+        android:textColor="#FFFF"
+        android:textSize="@dimen/dp20"
+        app:layout_constraintBottom_toTopOf="@+id/guideline20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNhapLaiMatKhauLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTextMatKhauLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:endIconMode="password_toggle"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNhapLaiMatKhauLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_baseline_password">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextMatKhau"
+            android:layout_width="@dimen/dp300"
+            android:layout_height="wrap_content"
+            android:hint="Mật Khẩu"
+            android:inputType="textPassword"
+
+            app:met_floatingLabel="normal"
+            tools:layout_editor_absoluteX="54dp"
+            tools:layout_editor_absoluteY="344dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTextNhapLaiMatKhauLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:endIconMode="password_toggle"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDongY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMatKhauLayout"
+        app:startIconDrawable="@drawable/ic_baseline_password">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNhapLaiMatKhau"
+            android:layout_width="@dimen/dp300"
+            android:layout_height="wrap_content"
+            android:hint="Mật Khẩu"
+            android:inputType="textPassword"
+            android:textSize="@dimen/dp20"
+
+            app:met_floatingLabel="normal"
+            tools:layout_editor_absoluteX="54dp"
+            tools:layout_editor_absoluteY="344dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

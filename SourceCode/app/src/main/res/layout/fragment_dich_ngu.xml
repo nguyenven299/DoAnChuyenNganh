@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.UI.DichNguFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="#D7EAF2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/PopupMenuTextView">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40"
+            android:background="#D7EAF2"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dp5"
+            android:text="@string/dich"
+            android:textAllCaps="true"
+            android:textColor="#0778E9"
+            android:textSize="@dimen/dp20"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <TextView
+        android:id="@+id/ngonNgu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Toolbar"
+        android:layout_marginHorizontal="@dimen/dp10"
+        android:text="@string/bangNhap"
+        android:textColor="#000000"
+        android:textSize="@dimen/dp20" />
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/editTextDich"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp150"
+        android:layout_below="@id/ngonNgu"
+        android:layout_margin="@dimen/dp10"
+        android:background="#FFFF"
+        android:gravity="top"
+        android:hint="@string/nhapBanDich" />
+
+
+    <TextView
+        android:id="@+id/ngonNguDich"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextDich"
+        android:layout_marginHorizontal="@dimen/dp10"
+        android:text="@string/bangDich"
+        android:textColor="#000000"
+        android:textSize="@dimen/dp20" />
+
+    <TextView
+        android:id="@+id/editTextDaDich"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ngonNguDich"
+        android:layout_marginHorizontal="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:background="#FFFF"
+        android:gravity="top"
+        android:textSize="@dimen/dp20" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>

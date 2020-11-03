@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_TrangChu"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/TrangChu" />
+
+    <item
+        android:id="@+id/navigation_DanhSach"
+        android:icon="@drawable/ic_perm_contact_calendar_black_24dp"
+        android:title="@string/DanhSach" />
+
+    <item
+        android:id="@+id/navigation_NhanTin"
+        android:icon="@drawable/ic_chat_black_24dp"
+        android:title="@string/TinNhan" />
+    <item
+        android:id="@+id/navigation_DichNgu"
+        android:icon="@drawable/ic_launcher_translate"
+        android:title="@string/dich" />
+    <item
+        android:id="@+id/navigation_TrangCaNhanh"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="@string/TrangCaNhan" />
+</menu>

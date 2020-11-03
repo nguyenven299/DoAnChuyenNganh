@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="nguoiDung"
+            type="com.example.mangxahoigduers.NguoiDungModel"  />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/AppTheme.NoActionBar"
+        tools:context=".View.Activity.ThongTinCaNhanActivity">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#D7EAF2"
+            android:theme="@style/Widget.MaterialComponents.AppBarLayout.Surface"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <ImageView
+                android:id="@+id/troVe"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"
+                android:background="@drawable/ic_baseline_arrow_back_24"
+                />
+
+            <TextView
+                android:id="@+id/nguoiDungHienTai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp25"
+                android:textSize="@dimen/dp20"
+                android:textColor="#0778E9"
+                android:textStyle="bold" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/hinhDaiDien"
+            android:layout_width="@dimen/dp100"
+            android:layout_height="@dimen/dp100"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.7"
+            app:layout_constraintStart_toEndOf="@+id/textViewHoTen"
+            app:layout_constraintTop_toBottomOf="@+id/Toolbar"
+            app:layout_constraintVertical_bias="0.3" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textViewHoTen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/hoTen"
+            android:text="@{nguoiDung.hoTen}"
+            android:textColor="#f000"
+            android:textSize="@dimen/dp25"
+            app:layout_constraintBottom_toBottomOf="@+id/hinhDaiDien"
+            app:layout_constraintEnd_toEndOf="@+id/textViewMaSo"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="@+id/textViewMaSo"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMaSo"
+            app:met_floatingLabel="normal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textViewMaSo"
+            android:layout_width="@dimen/dp200"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/Maso"
+            android:text="@{nguoiDung.maSo}"
+            android:textColor="#f000"
+            android:textSize="@dimen/dp20"
+            app:layout_constraintBottom_toBottomOf="@+id/hinhDaiDien"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/hinhDaiDien"
+            app:layout_constraintVertical_bias="0.3"
+            app:met_floatingLabel="normal" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iconSDT"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:background="@drawable/phone"
+            app:layout_constraintBottom_toTopOf="@+id/iconEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewLabelSDT"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textViewLabelSDT"
+            android:layout_width="@dimen/dp200"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/SDT"
+            android:textColor="#f000"
+            android:textSize="@dimen/dp12"
+            app:layout_constraintBottom_toTopOf="@+id/textViewSDT"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iconSDT"
+            app:layout_constraintTop_toTopOf="@+id/iconSDT"
+            app:met_floatingLabel="normal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textViewSDT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/SDT"
+            android:text="@{nguoiDung.SDT}"
+            android:textColor="#f000"
+            android:textSize="@dimen/dp25"
+            app:layout_constraintBottom_toBottomOf="@+id/iconSDT"
+            app:layout_constraintEnd_toEndOf="@+id/textViewLabelSDT"
+            app:layout_constraintStart_toStartOf="@+id/textViewLabelSDT"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLabelSDT"
+            app:met_floatingLabel="normal" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iconNgaySinh"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:background="@drawable/maintenance_date"
+            app:layout_constraintBottom_toTopOf="@+id/iconEmail"
+            app:layout_constraintEnd_toEndOf="@+id/iconEmail"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/iconEmail"
+            app:layout_constraintTop_toBottomOf="@+id/iconChuyenNganh" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textViewLabelNgaySinh"
+            android:layout_width="@dimen/dp200"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/ngaySinh"
+            android:textColor="#f000"
+            android:textSize="@dimen/dp12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iconNgaySinh"
+            app:layout_constraintTop_toTopOf="@+id/iconNgaySinh"
+            app:met_floatingLabel="normal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textViewNgaySinh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/ngaySinh"
+            android:text="@{nguoiDung.sinhNhat}"
+            android:textColor="#f000"
+            android:textSize="@dimen/dp25"
+            app:layout_constraintBottom_toBottomOf="@+id/iconNgaySinh"
+            app:layout_constraintEnd_toEndOf="@+id/textViewLabelNgaySinh"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/textViewLabelNgaySinh"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLabelNgaySinh"
+            app:met_floatingLabel="normal" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iconChuyenNganh"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:background="@drawable/bookmark"
+            app:layout_constraintBottom_toTopOf="@+id/iconLopHoc"
+            app:layout_constraintEnd_toEndOf="@+id/iconNgaySinh"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/iconNgaySinh"
+            app:layout_constraintTop_toBottomOf="@+id/iconNgaySinh" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textViewLabelChuyenNganh"
+            android:layout_width="@dimen/dp200"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:text="@string/chuyenNganh"
+            android:textColor="#f000"
+            android:textSize="@dimen/dp12"
+            app:layout_constraintBottom_toTopOf="@+id/textViewChuyenNganh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iconChuyenNganh"
+            app:layout_constraintTop_toTopOf="@+id/iconChuyenNganh"
+            app:met_floatingLabel="normal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textViewChuyenNganh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/chuyenNganh"
+            android:text="@{nguoiDung.chuyenNganh}"
+            android:textColor="#f000"
+            android:textSize="@dimen/dp25"
+            app:layout_constraintBottom_toBottomOf="@+id/iconChuyenNganh"
+            app:layout_constraintEnd_toEndOf="@+id/textViewLabelChuyenNganh"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/textViewLabelChuyenNganh"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLabelChuyenNganh"
+            app:met_floatingLabel="normal" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iconLopHoc"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:background="@drawable/classroom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/iconChuyenNganh"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/iconChuyenNganh"
+            app:layout_constraintTop_toBottomOf="@+id/iconChuyenNganh" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textViewLabelLopHoc"
+            android:layout_width="@dimen/dp200"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:gravity="center"
+            android:text="@string/lopHoc"
+            android:textColor="#f000"
+            android:textSize="@dimen/dp12"
+            app:layout_constraintBottom_toTopOf="@+id/textViewLopHoc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iconLopHoc"
+            app:layout_constraintTop_toTopOf="@+id/iconLopHoc"
+            app:met_floatingLabel="normal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textViewLopHoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/lopHoc"
+            android:text="@{nguoiDung.lopHoc}"
+            android:textColor="#f000"
+            android:textSize="@dimen/dp25"
+            app:layout_constraintBottom_toBottomOf="@+id/iconLopHoc"
+            app:layout_constraintEnd_toEndOf="@+id/textViewLabelLopHoc"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/textViewLabelLopHoc"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLabelLopHoc"
+            app:met_floatingLabel="normal" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iconEmail"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:background="@drawable/classroom"
+            app:layout_constraintBottom_toTopOf="@+id/iconNgaySinh"
+            app:layout_constraintEnd_toEndOf="@+id/iconSDT"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/iconSDT"
+            app:layout_constraintTop_toBottomOf="@+id/iconSDT" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textViewLabelEmail"
+            android:layout_width="@dimen/dp200"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:gravity="center"
+            android:text="@string/email"
+            android:textColor="#f000"
+            android:textSize="@dimen/dp12"
+            app:layout_constraintBottom_toTopOf="@+id/textViewEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iconEmail"
+            app:layout_constraintTop_toTopOf="@+id/iconEmail"
+            app:met_floatingLabel="normal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textViewEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/email"
+            android:text="@{nguoiDung.email}"
+            android:textColor="#f000"
+            android:textSize="@dimen/dp25"
+            app:layout_constraintBottom_toBottomOf="@+id/iconEmail"
+            app:layout_constraintEnd_toEndOf="@+id/textViewLabelEmail"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/textViewLabelEmail"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLabelEmail"
+            app:met_floatingLabel="normal" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.26" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
