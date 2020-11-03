@@ -199,3 +199,31 @@ android {
 |Báo cáo lỗi với Admin|Đã dăng ký||Người dùng liên lạc với Admin để thông báo các lỗi xuất phát trong quá trình sử dụng|Có thể thông báo qua Số điện thoại, Gmail, Facebook hoặc Github|
 |Thông báo tin nhắn|Đã đăng ký|Cloud Function + Cloud Messaging|Phần mềm thông báo đẩy nếu có người nhắn tin|Thông báo bao gồm tên ứng dụng, người gửi và nội dung tin nhắn|
 |Thông báo bài đăng|Đã đăng ký|Cloud Function + Cloud Messaging|Phần mềm thông báo đẩy đến Sinh viên nếu có Giảng viên đăng thông báo|Thông báo bao gồm tên ứng dụng, người đăng và nội dung tin nhắn|
+|Xem hình ảnh thông báo|Đã đăng ký và thông báo có kèmm hình ảnh|Firebase Storage|Xem hình ảnh thông báo mà Giảng viên đã đăng có thể thu phóng hình ảnh|
+|Tải hình ảnh thông báo|Đã đăng ký và thông báo có kèmm hình ảnh|Firebase Storage|Tải hình ảnh thông báo mà Giảng viên đã đăng|Cấp quyền thay đổi bộ nhớ|
+# 5. Các quyền yêu cầu truy cập trong ứng dụng:
+* Quyền truy cập Internet.
+* Quyền truy cập đọc và thay đổi bộ nhớ.
+* Quyền sử dụng điện thoại.
+# 6. Các thư viện đã thêm vào sử dụng:
+|Loại thư viện|Tên thư viện|Xử lý|Kế thừa|
+|---|---|---|---|
+|Design|Circle Image|Cắt ảnh theo hình tròn|'de.hdodenhof:circleimageview:3.1.0'|
+|Design|Material|Thêm hiệu ứng, tính năng vào giao diện người dùng (UI)|'com.google.android.material:material:1.2.1'|
+|Design|Material Text|Hiệu ứng trong Text|'com.rengwuxian.materialedittext:library:2.1.4'|
+|Design|Glide|Xử lý hình ảnh, đọc và gán hình ảnh|'com.github.bumptech.glide:glide:4.11.0'|
+|Design|PhotoView|Phóng to, thu nhỏ hình ảnh|'com.github.chrisbanes:PhotoView:2.3.0'|
+|Design|Navigation Fragment|Xử lý các Fragment trong Navigation|'androidx.navigation:navigation-fragment-ktx:2.3.1'|
+|Design|Navigation UI|Giao diện Navigation Bottom|'androidx.navigation:navigation-ui-ktx:2.3.1'|
+|Java|Viewmodel|Xử lý các tác vụ của ViewModel (Theo mô hình MVVM)|"androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"|
+|Java|Authentication|Xử lý tài khoản ứng dụng|'com.google.firebase:firebase-auth:19.4.0'|
+|Java|Firebase Storage|Lưu trữ hình ảnh|'com.google.firebase:firebase-storage:19.2.0'|
+|Java|Firebase Firestore|Lưu trữ cơ sơ|'com.google.firebase:firebase-firestore:21.7.1'|
+|Java|Firebase Realtime Database|Lưu trữ cơ sơ|'com.google.firebase:firebase-database:19.5.0'|
+|Java|Firebase Machine Learning|Dịch ngữ|'com.google.firebase:firebase-ml-natural-language:19.0.1'|
+|Kotlin|Authentication|Xử lý tài khoản ứng dụng|'com.firebaseui:firebase-ui-auth:6.2.0'|
+|Kotlin|Firebase Storage|Lưu trữ hình ảnh|'com.google.firebase:firebase-storage-ktx:19.2.0'|
+|Kotlin|Firebase Firestore|Lưu trữ cơ sơ|'com.google.firebase:firebase-firestore-ktx:21.7.1'|
+|Kotlin|Firebase Realtime Database|Lưu trữ cơ sơ|'com.google.firebase:firebase-database-ktx:19.5.0'|
+|Kotlin|Firebase Machine Learning|Dịch ngữ|'com.google.firebase:firebase-ml-natural-language:19.0.1'|
+|Kotlin|Firebase Cloud Messaging|Thông báo đẩy|com.google.firebase:firebase-messaging:20.3.0|
