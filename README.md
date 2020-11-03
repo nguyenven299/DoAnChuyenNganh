@@ -17,7 +17,7 @@
 * Android Studio là môi trường phát triển tích hợp (IDE) chính thức dành cho phát triển nền tảng Android.
 * Phiên bản hiện tại của Android Studio : 4.0.1 .
 * Ngôn ngữ có thể sử dụng: Java, Kotlin.
-* Visual studio code:
+#### Visual studio code:
 * Visual Studio Code là một trình biên tập mã được phát triển bởi Microsoft dành cho Windows, Linux và macOS.
 * Ngôn ngữ có thể sử dụng: Batch, C++, Clojure, CoffeeScript, DockerFile, Elixir, F#, Go, Java, HandleBars, Ini, Lua, Makefile, Objective-C, Perl, PowerShell, Python, R, Razor, Ruby, Rust, SQL, Visual Basic, XML.
 * Visual Studio Code có thể được mở rộng qua plugin.
