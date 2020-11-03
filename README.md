@@ -39,7 +39,7 @@
 * Ngôn ngữ này được dùng rộng rãi cho các trang web (phía người dùng) cũng như phía máy chủ (với Nodejs).
 * Java Script gồm 2 mảng là client-server thực hiện lệnh trên máy của end-user và web-server.
 
-## Hệ quản trị dữ liẹu:
+## Hệ quản trị cơ sở dữ liệu:
 #### Firebase:
 * Xây dựng ứng dụng nhanh chóng mà không cần quản lý cơ sở hạ tầng. Firebase cung cấp cho bạn các chức năng như phân tích, cơ sở dữ liệu, nhắn tin và báo cáo sự cố để bạn có thể di chuyển nhanh chóng và tập trung vào người dùng của mình.
 * Được hỗ trợ bởi Google, được các ứng dụng hàng đầu tin cậy. Firebase được xây dựng trên cơ sở hạ tầng của Google và tự động mở rộng quy mô, ngay cả những ứng dụng lớn nhất.
@@ -98,6 +98,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage'
 }
 ````
+## Công nghệ bổ sung:
 #### Firebase Cloud Function:
 * Chức năng đám mây cho Firebase là một khuôn khổ không máy chủ cho phép bạn tự động chạy mã phụ trợ để phản hồi các sự kiện được kích hoạt bởi các tính năng Firebase và các yêu cầu HTTPS. Mã JavaScript hoặc TypeScript của bạn được lưu trữ trong đám mây của Google và chạy trong môi trường được quản lý. Không cần phải quản lý và mở rộng các máy chủ của riêng bạn.
 
@@ -114,6 +115,18 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-messaging'
     implementation 'com.google.firebase:firebase-analytics'
+}
+````
+#### Firebase Machine Learning (Translate text):
+* ML Kit là một SDK di động mang kiến thức chuyên môn về máy học của Google cho các ứng dụng Android và iOS trong một gói mạnh mẽ nhưng dễ sử dụng.
+* Với API dịch trên thiết bị của ML Kit, bạn có thể dịch động văn bản giữa 59 ngôn ngữ.
+##### Thư viện:
+````
+dependencies {
+  // ...
+
+  implementation 'com.google.firebase:firebase-ml-natural-language:22.0.0'
+  implementation 'com.google.firebase:firebase-ml-natural-language-translate-model:20.0.8'
 }
 ````
 ## Lập trình hướng đối tượng:
