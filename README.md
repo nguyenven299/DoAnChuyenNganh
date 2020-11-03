@@ -175,3 +175,6 @@ android {
 }
 ````
 # 4. Các tính năng trong phần mềm:
+|Tính năng|Đang suy nghĩ|Quản lý|Chức năng|
+|---|---|---|---|
+|Đăng ký|Email|Firebase Authentication|Tạo tài khoản cho ứng dụng (chỉ những người là Giảng viên hoặc Sinh viên mới có thể đăng ký)|
