@@ -175,6 +175,26 @@ android {
 }
 ````
 # 4. Các tính năng trong phần mềm:
-|Tính năng|Đang suy nghĩ|Quản lý|Chức năng|
-|---|---|---|---|
-|Đăng ký|Email|Firebase Authentication|Tạo tài khoản cho ứng dụng (chỉ những người là Giảng viên hoặc Sinh viên mới có thể đăng ký)|
+|Tính năng|Yêu cầu|Xử lý|Giải thích tính năng|Chú thích thêm|
+|---|---|---|---|---|
+|Đăng ký|Email|Firebase Authentication|Tạo tài khoản cho ứng dụng (chỉ những người là Giảng viên hoặc Sinh viên mới có thể đăng ký) sử dụng Email. Email phải hợp lệ để tránh vấn đề quên mật khẩu vì mỗi người chỉ được đăng ký 1 tài khoản |
+|Đăng nhập|Đẵ đăng ký|Firebase Authentication|Đăng nhập để có thể sử dụng ứng dụng|
+|Đăng xuất|Đẵ đăng ký|Firebase Authentication|Đăng xuất khỏi ứng dụng|
+|Quên mật khẩu|Đã đăng ký|Firebase Authentication|Lấy lại mật khẩu (khi người dùng quên mật khẩu), Server sẽ gửi tin nhắn thay mật khẩu về Email|
+|Đổi mật khẩu|Đã đăng ký|Firebase Authentication|Thay đổi mật khẩu (Tăng cường tính bảo mật hoặc người dùng quên mật khẩu nhưng vẫn còn đang dăng nhập)|
+|Xem thông báo|Đã đăng ký|Firebase Realtime Database|Sử dụng tính năng Realtimme(chạy thời gian thực) để đọc thông báo được đăng tải từ Giảng viên|Bao gồm Nội dung thông báo, Hình ảnh (nếu có), thông tin người đăng (Ảnh đại điện, Họ và tên, Chức vụ, Chuyên ngành), Thòi gian đăng, Ghi chú đã chỉnh sửa (nếu có), Lựa chọn thêm (nếu có), Có thể bấm vào ảnh đại điện người dùng để xem thông tin cá nhân, Bấm vào Họ tên người dùng để nhắn tin|
+|Đăng thông báo|Đã đăng ký và là Giảng viên|Firebase Realtime Database|Đăng thông báo từ Giảng viên |
+|Xóa thông báo|Đã đăng ký và là Giảng viên|Firebase Realtime Database|Mỗi thông báo chỉ có thể xóa từ chính giảng viên đăng thông báo|Có nội dung thông báo, hình ảnh đi kèm (nếu có)|
+|Sửa thông báo|Đã đăng ký và là Giảng viên|Firebase Realtime Database|Mỗi thông báo chỉ có thể sửa từ chính giảng viên đăng thông báo|Có nội dung thông báo, hình ảnh đi kèm (nếu có)|
+|Đăng thông báo kèm hình ảnh|Đã đăng ký và là Giảng viên|Firebase Realtime Database + Firebase Storage|Đăng thông báo từ Giảng viên kèm theo hình ảnh|Cấp quyền đọc bộ nhớ cho ứng dụng|
+|Đổi ảnh đại diện|Đã đăng ký và có sẫn ảnh trong điện thoại|Firebase Storage|Mỗi tài khoản sẽ được thay đổi 1 ảnh đại diện|Cấp quyền đọc bộ nhớ cho ứng dụng|
+|Xem thông tin cá nhân|Đã đăng ký|Firebase Cloud Firestore|Mỗi tài khoản sẽ có Mã số, Họ và tên, Số điện thoại, Email, Ngày tháng năm sinh, Chuyên ngành, Lớp học|Có thể xe của bản thân hoặc người khác ( có thể bấm vào số điện thoại để thực hiện tín năng gọi điện hoặc bấm vào Email để gửi Mail)|
+|Tạo thông tin cá nhân|Đã đăng ký|Firebase Cloud Firestore|Mỗi tài khoản khi tạo sẽ cần thêm Email và Số điện thoại, Mã số, Họ và tên,  Ngày tháng năm sinh, Chuyên ngành, Lớp học đã có sẵn (vì là thành viên của trường)|
+|Xem danh sách toàn bộ người dùng|Đẵ đăng ký|Firebase Cloud Firestore|Hệ thống sẽ phân ra danh sách các thành viên bao gồm Giảng viên và Sinh viên, có thể bấm vào để chuyển đến phần nhắn tin với người đã bấm|
+|Xem danh sách người dùng đã nhắn tin|Đẵ đăng ký và đã nhắn tin với người khác|Firebase Cloud Firestore + Firebase Realtime Database|Hệ thống sẽ phân ra danh sách các thành viên bao gồm Giảng viên và Sinh viên đã nhắn tin đến hoặc nhận được tin nhắn từ người đó, có thể bấm vào để chuyển đến phần nhắn tin với người đã bấm|
+|Tìm kiếm người dùng|Đã đăng ký|Firebase Cloud Firestore|Có thể tìm theo Họ tên, Chức vụ hoặc chuyên ngành|
+|Gửi tin nhắn|Đã đăng ký|Firebase Realtime Database|Mỗi người chỉ có thể nhắn tin với 1 người duy nhất trong 1 lúc, tin nhắn sẽ được gửi đến người đã chọn trong phân đọc danh sách người dùng hoặc danh sách những người đã nhắn tin|Có thể bấm vào ảnh đại điện người dùng để xem thông tin cá nhân|
+|Dịch ngữ Anh-Việt|Đã đăng ký|Firebase Machine Learning|Giúp người dùng dịch các từ- các câu từ Tiếng Anh sang Tiếng Việt|Phải chờ tải xong bản dịch và chỉ mới có dịch được từ Tiếng Anh sang Tiếng Việt|
+|Báo cáo lỗi với Admin|Đã dăng ký||Người dùng liên lạc với Admin để thông báo các lỗi xuất phát trong quá trình sử dụng|Có thể thông báo qua Số điện thoại, Gmail, Facebook hoặc Github|
+|Thông báo tin nhắn|Đã đăng ký|Cloud Function + Cloud Messaging|Phần mềm thông báo đẩy nếu có người nhắn tin|Thông báo bao gồm tên ứng dụng, người gửi và nội dung tin nhắn|
+|Thông báo bài đăng|Đã đăng ký|Cloud Function + Cloud Messaging|Phần mềm thông báo đẩy đến Sinh viên nếu có Giảng viên đăng thông báo|Thông báo bao gồm tên ứng dụng, người đăng và nội dung tin nhắn|
