@@ -127,7 +127,6 @@ class TrangChuFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
                                     context)
                                 databinding.recycleview.adapter = thongBaoAdapter
                                 thongBaoAdapter.notifyDataSetChanged()
-//                        thongBaoAdapter.filter
                                 databinding.progressBar.visibility = View.GONE
                             }
 

@@ -28,6 +28,7 @@ import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
+import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -49,12 +50,9 @@ class DangThongBaoActivity : AppCompatActivity() {
         val uid = user!!.uid
         binding.dongY.setOnClickListener {
             val thongBao: String = binding.editTextThongBao.text.toString()
-            if(thongBao.isEmpty())
-            {
-                Toast.makeText(this,"Vui lòng nhập thông báo",Toast.LENGTH_LONG).show()
-            }
-            else
-            {
+            if (thongBao.isEmpty()) {
+                Toast.makeText(this, "Vui lòng nhập thông báo", Toast.LENGTH_LONG).show()
+            } else {
                 binding.progressBar3.visibility = View.VISIBLE
                 if (imageUri != null) {
                     dangAnhThongBao(uid, thongBao, currentDate)
@@ -69,15 +67,18 @@ class DangThongBaoActivity : AppCompatActivity() {
                 .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .withListener(object : PermissionListener {
                     override fun onPermissionGranted(response: PermissionGrantedResponse) {
-                        Toast.makeText(this@DangThongBaoActivity, "Chọn hình thông báo", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@DangThongBaoActivity,
+                            "Chọn hình thông báo",
+                            Toast.LENGTH_LONG).show()
                         chonThuVien()
 
                     }
 
                     override fun onPermissionDenied(response: PermissionDeniedResponse) {
-                        val snackBar = Snackbar.make(this@DangThongBaoActivity.findViewById(R.id.content),
-                            "Nếu muốn cấp lại quyền cho ứng dụng\nHãy vào cài đặt",
-                            Snackbar.LENGTH_LONG)
+                        val snackBar =
+                            Snackbar.make(this@DangThongBaoActivity.findViewById(R.id.content),
+                                "Nếu muốn cấp lại quyền cho ứng dụng\nHãy vào cài đặt",
+                                Snackbar.LENGTH_LONG)
                         snackBar.show()
                     }
 
@@ -85,8 +86,9 @@ class DangThongBaoActivity : AppCompatActivity() {
                         permission: PermissionRequest?,
                         token: PermissionToken?,
                     ) {
-                        val snackBar = Snackbar.make(this@DangThongBaoActivity.findViewById(R.id.content),
-                            "Vui lòng cấp quyền trong Cài đặt/ Ứng dụng", Snackbar.LENGTH_LONG)
+                        val snackBar =
+                            Snackbar.make(this@DangThongBaoActivity.findViewById(R.id.content),
+                                "Vui lòng cấp quyền trong Cài đặt/ Ứng dụng", Snackbar.LENGTH_LONG)
                         snackBar.show()
                     }
                 }).check()
@@ -106,6 +108,7 @@ class DangThongBaoActivity : AppCompatActivity() {
             alertDialog.show()
         }
     }
+
     // thiết lập nút trở về trên máy là tắt ứng dụng khi ở Activity này
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         return if (keyCode == KeyEvent.KEYCODE_BACK && event.repeatCount == 0) {
@@ -124,11 +127,15 @@ class DangThongBaoActivity : AppCompatActivity() {
             true
         } else super.onKeyDown(keyCode, event)
     }
+
     private fun dangAnhThongBao(uid: String, thongBao: String, date: String) {
+
+        val dateTime = Date()
+        val fileName = Timestamp(dateTime.time).time.toString()
         DangAnhThongBao.DangAnhThongBaoNguoiDung.Instance.DangAnhThongBaoNguoiDung(
             uid,
             imageUri!!,
-            textAddress,
+            fileName,
             object : DangAnhThongBao.IdangAnhThongBao {
                 override fun onSuccess(Success: String) {
                     dangThongBao(uid, thongBao, date, Success)

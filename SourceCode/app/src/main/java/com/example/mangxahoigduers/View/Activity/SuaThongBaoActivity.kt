@@ -34,6 +34,7 @@ import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
+import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -44,7 +45,7 @@ class SuaThongBaoActivity : AppCompatActivity() {
     private lateinit var firebaseStorage: FirebaseStorage
     val sdf = SimpleDateFormat("hh:mm dd/M/yyyy")
     val currentDate = sdf.format(Date())
-    lateinit var  anhThongBao:String
+    lateinit var anhThongBao: String
     private var imageUri: Uri? = null
     lateinit var textAddress: String
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,33 +58,43 @@ class SuaThongBaoActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         var uid = firebaseAuth.currentUser!!.uid
         database = Firebase.database.reference.child("Thong_Bao").child(key)
+
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val thongBao1 = dataSnapshot.getValue(ThongBao::class.java)
                 binding.editTextThongBao.setText(thongBao1!!.thongBao)
-                if (thongBao1!!.anhThongBao != "empty") {
-                    Glide.with(this@SuaThongBaoActivity).asBitmap().load(thongBao1.anhThongBao)
-                        .into(binding.anhThongBao)
+                anhThongBao = thongBao1.anhThongBao
+                Log.d("123123", "onActi: vlll")
+
+                if (thongBao1.anhThongBao != "empty") {
+                    try {
+                        Glide.with(this@SuaThongBaoActivity).load(thongBao1.anhThongBao)
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .skipMemoryCache(true)
+                            .into(binding.anhThongBao)
+                    } catch (e: Exception) {
+                        Log.d("dkmmdeohieu", "onDataChange: $e " + thongBao1.anhThongBao)
+                    }
                 }
-                    anhThongBao = thongBao1.anhThongBao
+
             }
+
             override fun onCancelled(databaseError: DatabaseError) {
                 Log.d("loidocthongbao", "onCancelled: " + databaseError)
             }
         })
         binding.dongY.setOnClickListener {
             val thongBao: String = binding.editTextThongBao.text.toString()
-            if(thongBao.isEmpty())
-            {
-                Toast.makeText(this,"Vui lòng nhập thông báo",Toast.LENGTH_LONG).show()
-            }
-            else
-            {
-                binding.progressBar3.visibility=View.VISIBLE
+            if (thongBao.isEmpty()) {
+                Toast.makeText(this, "Vui lòng nhập thông báo", Toast.LENGTH_LONG).show()
+            } else {
+                binding.progressBar3.visibility = View.VISIBLE
                 if (imageUri != null) {
-                    dangAnhThongBao(key,uid, thongBao, currentDate)
+                    dangAnhThongBao(key, uid, thongBao, currentDate)
+                } else if (anhThongBao != null) {
+                    capNhatThongBao(key, uid, thongBao, currentDate, anhThongBao)
                 } else {
-                    capNhatThongBao(key,uid, thongBao, currentDate, "empty")
+                    capNhatThongBao(key, uid, thongBao, currentDate, "empty")
                 }
             }
         }
@@ -92,15 +103,18 @@ class SuaThongBaoActivity : AppCompatActivity() {
                 .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .withListener(object : PermissionListener {
                     override fun onPermissionGranted(response: PermissionGrantedResponse) {
-                        Toast.makeText(this@SuaThongBaoActivity, "Chọn hình thông báo", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@SuaThongBaoActivity,
+                            "Chọn hình thông báo",
+                            Toast.LENGTH_LONG).show()
                         chonThuVien()
 
                     }
 
                     override fun onPermissionDenied(response: PermissionDeniedResponse) {
-                        val snackBar = Snackbar.make(this@SuaThongBaoActivity!!.findViewById(android.R.id.content),
-                            "Nếu muốn cấp lại quyền cho ứng dụng\nHãy vào cài đặt",
-                            Snackbar.LENGTH_LONG)
+                        val snackBar =
+                            Snackbar.make(this@SuaThongBaoActivity!!.findViewById(android.R.id.content),
+                                "Nếu muốn cấp lại quyền cho ứng dụng\nHãy vào cài đặt",
+                                Snackbar.LENGTH_LONG)
                         snackBar.show()
                     }
 
@@ -108,8 +122,9 @@ class SuaThongBaoActivity : AppCompatActivity() {
                         permission: PermissionRequest?,
                         token: PermissionToken?,
                     ) {
-                        val snackBar = Snackbar.make(this@SuaThongBaoActivity!!.findViewById(android.R.id.content),
-                            "Vui lòng cấp quyền trong Cài đặt/ Ứng dụng", Snackbar.LENGTH_LONG)
+                        val snackBar =
+                            Snackbar.make(this@SuaThongBaoActivity!!.findViewById(android.R.id.content),
+                                "Vui lòng cấp quyền trong Cài đặt/ Ứng dụng", Snackbar.LENGTH_LONG)
                         snackBar.show()
                     }
                 }).check()
@@ -129,6 +144,7 @@ class SuaThongBaoActivity : AppCompatActivity() {
             alertDialog.show()
         }
     }
+
     // thiết lập nút trở về trên máy là tắt ứng dụng khi ở Activity này
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         return if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() === 0) {
@@ -147,30 +163,55 @@ class SuaThongBaoActivity : AppCompatActivity() {
             true
         } else super.onKeyDown(keyCode, event)
     }
-    private fun dangAnhThongBao(key: String,uid: String, thongBao: String, date: String) {
-        if(anhThongBao!="empty")
-        {
-            firebaseStorage= FirebaseStorage.getInstance()
-            var storage : StorageReference = firebaseStorage.getReferenceFromUrl(anhThongBao)
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("123123", "onDestroy: vlll")
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("123123", "onResume: vllll")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("123123", "onStart: ")
+    }
+    private fun dangAnhThongBao(key: String, uid: String, thongBao: String, date: String) {
+        Log.d("21312312323", "onCreate: +123123213123123")
+        val dateTime = Date()
+        val fileName = Timestamp(dateTime.time).time.toString()
+        if (imageUri != null) {
+            firebaseStorage = FirebaseStorage.getInstance()
+            var storage: StorageReference = firebaseStorage.getReferenceFromUrl(anhThongBao)
             storage.delete().addOnSuccessListener {
                 DangAnhThongBao.DangAnhThongBaoNguoiDung.Instance.DangAnhThongBaoNguoiDung(
                     uid,
                     imageUri!!,
-                    textAddress,
+                    fileName,
                     object : DangAnhThongBao.IdangAnhThongBao {
                         override fun onSuccess(Success: String) {
-                            capNhatThongBao(key,uid,thongBao,date,Success)
+                            capNhatThongBao(key, uid, thongBao, date, Success)
                         }
+
                         override fun onFail(Fail: String) {
                             Toast.makeText(this@SuaThongBaoActivity, Fail, Toast.LENGTH_LONG).show()
                         }
                     })
             }
         }
+
     }
 
-    private fun capNhatThongBao(key:String,uid: String,thongBao: String,date: String,anhThongBao:String)
-    {
+    private fun capNhatThongBao(
+        key: String,
+        uid: String,
+        thongBao: String,
+        date: String,
+        anhThongBao: String,
+    ) {
         CapNhatThongBao.CapNhatThongBaoNguoiDung.Instance.CapNhatThongBaoNguoiDung(key,
             uid,
             thongBao,
@@ -230,6 +271,7 @@ class SuaThongBaoActivity : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_SELECT_IMAGE_IN_ALBUM) {
             binding.anhThongBao.setImageURI(data?.data) // handle chosen image
             Glide.with(this).load(data?.data).diskCacheStrategy(DiskCacheStrategy.ALL)
+                .skipMemoryCache(true)
                 .into(binding.anhThongBao)
             imageUri = data?.data!!
             var path: String? = imageUri!!.path
