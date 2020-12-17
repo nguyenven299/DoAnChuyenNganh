@@ -49,4 +49,6 @@
     <string name="bangDich">Bảng dịch ngữ</string>
     <string name="anhViet">Anh - Việt</string>
     <string name="vietAnh">Việt - Anh</string>
+    <string name="matKhau">Mật khẩu</string>
+    <string name="nhapLaiMatKhau">Nhập lại mật khẩu</string>
 </resources>

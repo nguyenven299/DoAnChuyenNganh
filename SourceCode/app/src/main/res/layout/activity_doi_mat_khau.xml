@@ -28,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:endIconMode="password_toggle"
+        android:hint="@string/matKhau"
         app:layout_constraintBottom_toTopOf="@+id/editTextNhapLaiMatKhauLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
@@ -40,7 +41,6 @@
             android:id="@+id/editTextMatKhau"
             android:layout_width="@dimen/dp300"
             android:layout_height="wrap_content"
-            android:hint="Mật Khẩu"
             android:inputType="textPassword"
 
             app:met_floatingLabel="normal"
@@ -53,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:endIconMode="password_toggle"
+        android:hint="@string/nhapLaiMatKhau"
         app:layout_constraintBottom_toTopOf="@+id/buttonDongY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
@@ -65,7 +66,6 @@
             android:id="@+id/editTextNhapLaiMatKhau"
             android:layout_width="@dimen/dp300"
             android:layout_height="wrap_content"
-            android:hint="Mật Khẩu"
             android:inputType="textPassword"
             android:textSize="@dimen/dp20"
 
